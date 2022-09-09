@@ -1,27 +1,30 @@
 // Media queries
-
-$media-breakpoints: (
-  mobile: 375px,
-  desktop: 1440px,
-);
-
-@mixin desktop {
-  @media screen and (min-width: map-get($media-breakpoints,"desktop")) {
-    @content;
-  }
-}
-
-@mixin medium {
-  @media screen and (min-width: map-get($media-breakpoints,"mobile")) {
-    @content;
-  }
-}
-
 @mixin mobile-only {
-  @media screen and (max-width: map-get($media-breakpoints,"mobile")) {
+  @media screen and (max-width: 449px) {
     @content;
   }
 }
+
+@mixin medium-up {
+  @media screen and (min-width: 450px) {
+    @content;
+  }
+}
+
+@mixin medium-only {
+  @media screen and (min-width: 450px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+
+
 
 // Typography
 
@@ -64,7 +67,7 @@ body {
   @include mobile-only{
     display: block;
   }
-  @include desktop{
+  @include medium-up{
     align-items: center;
     height: 100%;
   }
@@ -77,14 +80,14 @@ body {
   justify-content: flex-start;
   flex-direction: row;
   overflow: hidden;
-  box-shadow: 5px 5px 10px black;
+  box-shadow: 6px 8px 15px 3px rgba($secondary-color, 0.3);
   width: 600px;
   @include mobile-only {
     margin: 0.5rem;
     width: auto;
     flex-direction: column;
   }
-  @include medium{
+  @include medium-only{
     margin: 1rem;
   }
 
@@ -95,7 +98,7 @@ body {
       height: 250px;
       width: auto;
     }
-    @include desktop{
+    @include medium-up{
       width: 50%;
     }
   }
