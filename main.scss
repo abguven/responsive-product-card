@@ -1,39 +1,203 @@
-// # Front-end Style Guide
+// Media queries
 
-// ## Layout
+$media-breakpoints: (
+  mobile: 375px,
+  desktop: 1440px,
+);
 
-// The designs were created to the following widths:
+@mixin desktop {
+  @media screen and (min-width: map-get($media-breakpoints,"desktop")) {
+    @content;
+  }
+}
 
-// - Mobile: 375px
-// - Desktop: 1440px
+@mixin medium {
+  @media screen and (min-width: map-get($media-breakpoints,"mobile")) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media screen and (max-width: map-get($media-breakpoints,"mobile")) {
+    @content;
+  }
+}
+
+// Typography
+
+$default-font-size: 14px;
+$price-font-size: 1rem;
+$button-font-size: 1.2rem;
+$title-font-size: 2.5rem;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+// font-family: 'Montserrat', sans-serif;
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap");
+// font-family: 'Fraunces', serif;
 
 // ## Colors
 
-// ### Primary
+$primary-color: hsl(158, 36%, 37%); // Dark cyan
+$primary-bg-color: hsl(30, 38%, 92%); // Cream
 
-// - Dark cyan: hsl(158, 36%, 37%)
-// - Cream: hsl(30, 38%, 92%)
+$secondary-color: hsl(212, 21%, 14%); // Very dark blue
+$secondary-bg-color: hsl(228, 12%, 48%); // dark grayish blue
 
-// ### Neutral
+$white: hsl(0, 0%, 100%);
 
-// - Very dark blue: hsl(212, 21%, 14%)
-// - Dark grayish blue: hsl(228, 12%, 48%)
-// - White: hsl(0, 0%, 100%)
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: $default-font-size;
+  height: 100%;
+}
 
-// ## Typography
+body {
+  height: 100%;
+  background-color: $primary-bg-color;
+}
 
-// ### Body Copy
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  @include mobile-only{
+    display: block;
+  }
+  @include desktop{
+    align-items: center;
+    height: 100%;
+  }
+}
 
-// - Font size (paragraph): 14px
+.card {
+  background-color: $white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px black;
+  width: 600px;
+  @include mobile-only {
+    margin: 0.5rem;
+    width: auto;
+    flex-direction: column;
+  }
+  @include medium{
+    margin: 1rem;
+  }
 
-// ### Font
 
-// - Family: [Montserrat](https://fonts.google.com/specimen/Montserrat)
-// - Weights: 500, 700
+  &__image-wrapper {
+    min-width: 180px;
+    @include mobile-only(){
+      height: 250px;
+      width: auto;
+    }
+    @include desktop{
+      width: 50%;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__body {
+    width: 50%;
+    @include mobile-only(){
+      width: auto;
+    }
+    background-color: $white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &__category {
+    color: $secondary-bg-color;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0.5rem 0;
+  }
+  &__title {
+    font-family: "Fraunces", serif;
+    font-size: $title-font-size;
+    @include mobile-only(){
+      font-size: $title-font-size * 0.9;
+    }
+    margin: 0.5rem 0;
+  }
+  &__caption {
+    line-height: 1.5rem;
+    color: $secondary-bg-color;
+  }
+  &__order-button {
+    width: 100%;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: $button-font-size;
+    &__icon {
+      height: $button-font-size;
+      margin: 0 1rem 0.1rem 0;
+      vertical-align: middle;
+    }
+    &__text {
+      vertical-align: middle;
+    }
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+  &__prices {
+    margin: 1rem 0;
+  }
+  &__new-price {
+    font-family: "Fraunces", serif;
+    font-size: $price-font-size * 2;
+    @include mobile-only(){
+      font-size: $price-font-size * 1.8;
+    }
+    color: $primary-color;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+  &__old-price {
+    font-size: $price-font-size;
+    @include mobile-only(){
+      font-size: $price-font-size * 0.9;
+    }
+    text-decoration: line-through;
+    vertical-align: middle;
+    color: $secondary-bg-color;
+  }
+}
 
-// - Family: [Fraunces](https://fonts.google.com/specimen/Fraunces)
-// - Weights: 700
+footer {
+  margin: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  @include mobile-only(){
+    position: static;
+    margin : 1rem auto;
+  }
+}
 
-
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+// Attribution
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

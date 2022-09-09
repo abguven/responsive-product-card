@@ -1,3 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap");
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  height: 100%; }
+
+body {
+  height: 100%;
+  background-color: #f2ebe3; }
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+  @media screen and (max-width: 375px) {
+    .container {
+      display: block; } }
+  @media screen and (min-width: 1440px) {
+    .container {
+      align-items: center;
+      height: 100%; } }
+
+.card {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px black;
+  width: 600px; }
+  @media screen and (max-width: 375px) {
+    .card {
+      margin: 0.5rem;
+      width: auto;
+      flex-direction: column; } }
+  @media screen and (min-width: 375px) {
+    .card {
+      margin: 1rem; } }
+  .card__image-wrapper {
+    min-width: 180px; }
+    @media screen and (max-width: 375px) {
+      .card__image-wrapper {
+        height: 250px;
+        width: auto; } }
+    @media screen and (min-width: 1440px) {
+      .card__image-wrapper {
+        width: 50%; } }
+  .card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  .card__body {
+    width: 50%;
+    background-color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    @media screen and (max-width: 375px) {
+      .card__body {
+        width: auto; } }
+  .card__category {
+    color: #6c7289;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0.5rem 0; }
+  .card__title {
+    font-family: "Fraunces", serif;
+    font-size: 2.5rem;
+    margin: 0.5rem 0; }
+    @media screen and (max-width: 375px) {
+      .card__title {
+        font-size: 2.25rem; } }
+  .card__caption {
+    line-height: 1.5rem;
+    color: #6c7289; }
+  .card__order-button {
+    width: 100%;
+    background-color: #3c8067;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 1.2rem; }
+    .card__order-button__icon {
+      height: 1.2rem;
+      margin: 0 1rem 0.1rem 0;
+      vertical-align: middle; }
+    .card__order-button__text {
+      vertical-align: middle; }
+    .card__order-button:hover {
+      background-color: #1c232b; }
+  .card__prices {
+    margin: 1rem 0; }
+  .card__new-price {
+    font-family: "Fraunces", serif;
+    font-size: 2rem;
+    color: #3c8067;
+    vertical-align: middle;
+    margin-right: 1rem; }
+    @media screen and (max-width: 375px) {
+      .card__new-price {
+        font-size: 1.8rem; } }
+  .card__old-price {
+    font-size: 1rem;
+    text-decoration: line-through;
+    vertical-align: middle;
+    color: #6c7289; }
+    @media screen and (max-width: 375px) {
+      .card__old-price {
+        font-size: 0.9rem; } }
+
+footer {
+  margin: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+  @media screen and (max-width: 375px) {
+    footer {
+      position: static;
+      margin: 1rem auto; } }
+
 .attribution {
   font-size: 11px;
   text-align: center; }
