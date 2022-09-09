@@ -90,7 +90,7 @@ body {
 
 
   &__image-wrapper {
-    min-width: 180px;
+    min-width: 100px;
     @include mobile-only(){
       height: 250px;
       width: auto;

@@ -39,7 +39,7 @@ body {
     .card {
       margin: 1rem; } }
   .card__image-wrapper {
-    min-width: 180px; }
+    min-width: 100px; }
     @media screen and (max-width: 375px) {
       .card__image-wrapper {
         height: 250px;
