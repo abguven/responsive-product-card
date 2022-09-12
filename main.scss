@@ -49,6 +49,12 @@ $secondary-bg-color: hsl(228, 12%, 48%); // dark grayish blue
 
 $white: hsl(0, 0%, 100%);
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Montserrat", sans-serif;
   font-size: $default-font-size;
@@ -58,19 +64,21 @@ html {
 body {
   height: 100%;
   background-color: $primary-bg-color;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
   width: 100%;
   display: flex;
   justify-content: center;
-  @include mobile-only{
-    display: block;
-  }
-  @include medium-up{
-    align-items: center;
-    height: 100%;
-  }
+  align-items: center;
+  flex: 1;
+
+  // @include medium-up{
+  //   align-items: center;
+  //   height: 100%;
+  // }
 }
 
 .card {
@@ -100,6 +108,7 @@ body {
     }
     @include medium-up{
       width: 50%;
+      flex: 1 50%;
     }
   }
   &__image {
@@ -109,8 +118,10 @@ body {
   }
   &__body {
     width: 50%;
+    flex: 1 50%;
     @include mobile-only(){
-      width: auto;
+      width: 100%;
+      flex: 1 100%;
     }
     background-color: $white;
     padding: 1.5rem 2rem;
@@ -185,13 +196,9 @@ body {
 
 footer {
   margin: 0.5rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   text-align: center;
   @include mobile-only(){
-    position: static;
     margin : 1rem auto;
   }
 }
